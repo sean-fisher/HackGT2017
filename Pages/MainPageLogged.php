@@ -102,7 +102,7 @@
             padding: 10px;
             border-spacing: 0.5rem;
             border-collapse: collapse;
-            margin-left: 30%;
+            margin-left: 35%;
             margin-right: 30%;
         }
 
@@ -123,14 +123,21 @@
             text-align: center;
         }
         input[class="profButton"],input[class="logoutButton"] {
+<<<<<<< HEAD
             margin-right: 3px;
             border-style: groove;
             border-width: thick;
+=======
+            margin-right: 8px;
+            margin-top: 3px;
+            border-width: thin;
+>>>>>>> 616a6dff78b596721091014fed07ecd36679c01e
             border-radius: 20px;
             font-weight: bold;
             cursor: pointer;
         }
         .rectangle {
+<<<<<<< HEAD
            background: #FF5A43;
            height: 31px;
            position: relative;
@@ -141,6 +148,18 @@
            border-radius: 3px;
            z-index: 500; /* the stack order: foreground */
            margin: 0;
+=======
+            background: #FF5A43;
+            height: 45px;
+            position: relative;
+            -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+            box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            z-index: 500; /* the stack order: foreground */
+            margin: 0;
+>>>>>>> 616a6dff78b596721091014fed07ecd36679c01e
         }
 
 
@@ -186,7 +205,6 @@
                 <td>Organization</td>
                 <td>Reward</td>
                 <td>Needed By</td>
-                </td>
             </tr>
         </table>
 
