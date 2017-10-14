@@ -6,16 +6,44 @@
         div#expand {
             display: block;
         }
+
+        .header {
+            position: absolute;
+            right: 0px;
+        }
+
+        .profbutton {
+            margin-right: 3px;
+        }
+        .rectangle {
+           background: #e5592e;
+           height: 31px;
+           position: relative;
+           -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+           box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+           -webkit-border-radius: 3px;
+           -moz-border-radius: 3px;
+           border-radius: 3px;
+           z-index: 500; /* the stack order: foreground */
+           margin: 0;
+        }
+
+
+
     </style>
+
+
 </head>
 <body>
 
     <script type="text/javascript" src="../js/RequestForm.js">
     </script>
 
-    <div>
-        <input type="button" value="My Profile" onclick="profile()">
-        <input type="button" value="Logout" onclick="log_out()"/>
+    <div class="rectangle">
+    <div class="header">
+        <input class="profButton" type="button" value="My Profile" onclick="profile()">
+        <input class="profButton" type="button" value="Logout" onclick="log_out()"/>
+    </div>
     </div>
     <input type="button" value="Submit Request"
     onclick="request_form()"/>
