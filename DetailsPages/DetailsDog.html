@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+	<meta charset="utf-8" />
+	<style>
+		div#expand {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<Label><b>Home</b></Label>
+		<input type="button" value="Home" onclick="go_home()"/>
+	</div>
+	<div>
+		<Label><b>My Profile</b></Label>
+		<input type="button" value="Logout" onclick="log_out()" />
+	</div>
+	<input type="button" value="Submit Request"
+		   onclick="request_form()" />
+
+	<p>
+		Dog Description.
+	</p>
+
+	<script>
+
+        function go_home() {
+            window.location.href = "../MainPageLogged.html";
+        }
+	</script>
+</body>
