@@ -14,7 +14,7 @@
     </script>
 
     <div>
-        <Label><b>My Profile</b></Label>
+        <input type="button" value="My Profile" onclick="profile()">
         <input type="button" value="Logout" onclick="log_out()"/>
     </div>
     <input type="button" value="Submit Request"
@@ -60,6 +60,9 @@
             window.location.href = "MainPageUnlogged.html"
         }
 
+        function profile() {
+            window.location.href = "Profile.html"
+        }
         function get_requests() {
 
 
