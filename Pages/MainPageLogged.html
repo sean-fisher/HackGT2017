@@ -63,6 +63,10 @@
         function profile() {
             window.location.href = "Profile.html"
         }
+
+        function submit_form() {
+            window.location.href = "SubmitForm.html"
+        }
         function get_requests() {
 
 
@@ -93,6 +97,7 @@
             var cell3 = row.insertCell(2);
             var cell4 = row.insertCell(3);
             var cell5 = row.insertCell(4); // the details button
+            var cell6 = row.insertCell(5); // submit button
 
             cell1.innerHTML = requests[i][0];
             cell2.innerHTML = requests[i][1];
@@ -106,6 +111,11 @@
             detailLink.appendChild(linkText);
             // Add the link to the previously created TableCell.
             cell5.appendChild(detailLink);
+            var submitButton = document.createElement("input");
+            submitButton.type = "Button";
+            submitButton.value = "Take Request";
+            submitButton.setAttribute("onclick", "submit_form()");
+            cell6.appendChild(submitButton);
         }
     </script>
 
