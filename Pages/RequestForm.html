@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <meta charset="utf-8" />
@@ -15,4 +15,37 @@
     <div><input type="text" placeholder="Payment Offered" name="Payment Offered" required></div>
     <div><label><b>Request Details</b></label></div>
     <div><input type="text" placeholder="Request Details" name="Request Details" required></div>
+
+    <div>
+        <input type="button" value="Submit Request" onclick="submit_request()" />
+    </div>
+    <script type="text/javascript">
+
+        var reader = new FileReader();
+
+        function readText(that) {
+
+            if (that.files && that.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var output = e.target.result;
+
+                    //process text to show only lines with "@":
+                    output = output.split("\n").filter(/./.test, /\@/).join("\n");
+
+                    document.getElementById('main').innerHTML = output;
+                    console.log();
+                };//end onload()
+                reader.readAsText(that.files[0]);
+            }//end if html5 filelist support
+        }
+    </script>
+
+    <script>
+        readText("../lib/TestFile.txt");
+        //var file = fopen("../lib/TestFile.txt", 0);
+        function submit_request() {
+
+        }
+    </script>
 </body>
