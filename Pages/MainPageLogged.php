@@ -123,14 +123,32 @@
             text-align: center;
         }
         input[class="profButton"],input[class="logoutButton"] {
+<<<<<<< HEAD
+            margin-right: 3px;
+            border-style: groove;
+            border-width: thick;
+=======
             margin-right: 8px;
             margin-top: 3px;
             border-width: thin;
+>>>>>>> 616a6dff78b596721091014fed07ecd36679c01e
             border-radius: 20px;
             font-weight: bold;
             cursor: pointer;
         }
         .rectangle {
+<<<<<<< HEAD
+           background: #FF5A43;
+           height: 31px;
+           position: relative;
+           -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+           box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+           -webkit-border-radius: 3px;
+           -moz-border-radius: 3px;
+           border-radius: 3px;
+           z-index: 500; /* the stack order: foreground */
+           margin: 0;
+=======
             background: #FF5A43;
             height: 45px;
             position: relative;
@@ -141,19 +159,25 @@
             border-radius: 3px;
             z-index: 500; /* the stack order: foreground */
             margin: 0;
+>>>>>>> 616a6dff78b596721091014fed07ecd36679c01e
         }
 
 
         .rectangle2 {
-           background: #e5592e;
+           background: #FF5A43;
            position: relative;
            -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
            box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
            z-index: 500; /* the stack order: foreground */
            width: 100px;
            height: 100px;
+           top: 50px;
            margin-right: 150px;
            float: right;
+
+        }
+        .detbox {
+            text-align: center;
         }
     </style>
 
@@ -186,13 +210,13 @@
 
     </div>
 
-    <div id="requestDetails">
+    <div class="detbox" id="detailsbox">
         <!-- Content Goes here -->
     </div>
     <div style="text-align:center;">
         <input type="button" value="Submit Request"
     onclick="request_form()"/>
-    </div>
+    </div >
 
     <div>
     </div>
@@ -218,8 +242,11 @@
             cell4.innerHTML = format_date(requests[i][3]);
 
             var details = requests[i][4];
-            var detailLink = document.createElement("a");
-            detailLink.setAttribute("href", details)
+            var detailLink = document.createElement("input");
+            detailLink.type = "Button";
+            detailLink.name = details;
+            detailLink.value = "Details";
+            detailLink.setAttribute("onclick", "show_details(this.name)");
             var linkText = document.createTextNode("Details");
             detailLink.appendChild(linkText);
             // Add the link to the previously created TableCell.
@@ -231,14 +258,12 @@
             cell6.appendChild(submitButton);
         }
         });
-        function show(message) {
+        function show_details(message) {
+            console.log(message);
             //Function content goes here
-            document.getElementById("requestDetails").innerHTML = message;
-
-            if (document.getElementById('requestDetails').style.display == 'none') {
-                document.getElementById('requestDetails').style.display = 'block';
-            } else {
-                document.getElementById('requestDetails').style.display = 'none';
+            document.getElementById("detailsbox").innerHTML=message;
+            if (document.getElementById('detailsbox').style.display == 'none') {
+                document.getElementById('detailsbox').style.display = 'block';
             }
         }
 
