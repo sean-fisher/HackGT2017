@@ -2,9 +2,9 @@
 <body>
     <div><input type="button" value="Home" onclick="return_home()"/>
     </div>
-    <div><b>Name</b></div>
-    <div><b>Description</b></div>
-    <div><b>Organization</b></div>
+    <div id="nameBlock"></div>
+    <div id="orgBlock"></div>
+    <div id="descBlock"></div>
     <input type="button" value="edit" onclick="edit_profile()"/>
 
     <script type="text/javascript">
@@ -14,5 +14,8 @@
         function return_home() {
             window.location.href="EditProfile.html"
         }
+        document.getElementById("nameBlock").innerHTML += "Kevin Zhu";
+        document.getElementById("descBlock").innerHTML += "A CS Student";
+        document.getElementById("orgBlock").innerHTML += "Georgia Tech";
     </script>
 </body>
