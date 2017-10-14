@@ -13,6 +13,7 @@
 
         body {
             background-color: orangered;
+            background-image: url("../background.png");
             font-family: "Roboto", helvetica, arial, sans-serif;
             font-size: 16px;
             font-weight: 400;
@@ -123,7 +124,6 @@
         }
         input[class="profButton"],input[class="logoutButton"] {
             margin-right: 3px;
-            background-color: #4CAF50;
             border-style: groove;
             border-width: thick;
             border-radius: 20px;
@@ -131,7 +131,7 @@
             cursor: pointer;
         }
         .rectangle {
-           background: #e5592e;
+           background: #FF5A43;
            height: 31px;
            position: relative;
            -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
@@ -145,15 +145,20 @@
 
 
         .rectangle2 {
-           background: #e5592e;
+           background: #FF5A43;
            position: relative;
            -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
            box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
            z-index: 500; /* the stack order: foreground */
            width: 100px;
            height: 100px;
+           top: 50px;
            margin-right: 150px;
            float: right;
+
+        }
+        .detbox {
+            text-align: center;
         }
     </style>
 
@@ -183,19 +188,17 @@
                 <td>Needed By</td>
                 </td>
             </tr>
-            <p class="rectangle2">
-    </p>
         </table>
 
     </div>
 
-    <div id="requestDetails">
+    <div class="detbox" id="detailsbox">
         <!-- Content Goes here -->
     </div>
     <div style="text-align:center;">
         <input type="button" value="Submit Request"
     onclick="request_form()"/>
-    </div>
+    </div >
 
     <div>
     </div>
@@ -221,8 +224,11 @@
             cell4.innerHTML = format_date(requests[i][3]);
 
             var details = requests[i][4];
-            var detailLink = document.createElement("a");
-            detailLink.setAttribute("href", details)
+            var detailLink = document.createElement("input");
+            detailLink.type = "Button";
+            detailLink.name = details;
+            detailLink.value = "Details";
+            detailLink.setAttribute("onclick", "show_details(this.name)");
             var linkText = document.createTextNode("Details");
             detailLink.appendChild(linkText);
             // Add the link to the previously created TableCell.
@@ -234,14 +240,12 @@
             cell6.appendChild(submitButton);
         }
         });
-        function show(message) {
+        function show_details(message) {
+            console.log(message);
             //Function content goes here
-            document.getElementById("requestDetails").innerHTML = message;
-
-            if (document.getElementById('requestDetails').style.display == 'none') {
-                document.getElementById('requestDetails').style.display = 'block';
-            } else {
-                document.getElementById('requestDetails').style.display = 'none';
+            document.getElementById("detailsbox").innerHTML=message;
+            if (document.getElementById('detailsbox').style.display == 'none') {
+                document.getElementById('detailsbox').style.display = 'block';
             }
         }
 
