@@ -37,6 +37,7 @@
                 $("#divCheckPasswordMatch").html("Passwords do not match.");
             }
             if (valid) {
+                write_to_file()
                 window.location.href = "MainPageLogged.html";
             }
         }
