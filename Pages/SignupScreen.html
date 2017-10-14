@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <form action="/action_page.php">
+        <div><label><b>Email</b></label></div>
+        <div><input type="text" placeholder="Enter Email" name="email" required></div>
+
+        <div><label><b>Password</b></label></div>
+        <div><input type="password" id="txtPassword"
+            placeholder="Enter Password" name="psw" required></div>
+
+        <div><label><b>Confirm Password</b></label></div>
+        <div><input type="password" id="txtNewPassword"
+            placeholder="Confirm Password"
+            name="psw-repeat" required></div>
+        <div id="divCheckPasswordMatch"></div>
+
+        <div><input type="checkbox" checked="checked"> Remember me
+        </div>
+
+        <div><input type="button" value="Sign Up" onclick="sign_up()"></div>
+
+    </form>
+
+    <script>
+        function sign_up() {
+            var valid = true;
+            var password = $("#txtPassword").val();
+            var confirmPassword = $("#txtNewPassword").val();
+            console.log(password);
+            console.log(confirmPassword);
+            if (password != confirmPassword) {
+                valid = false;
+                $("#divCheckPasswordMatch").html("Passwords do not match.");
+            }
+            if (valid) {
+                window.location.href = "MainPageLogged.html";
+            }
+        }
+    </script>
+</body>
+

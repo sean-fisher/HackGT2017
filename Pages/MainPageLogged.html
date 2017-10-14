@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+    <meta charset="utf-8" />
+    <style>
+        div#expand {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <script type="text/javascript" src="../js/RequestForm.js">
+    </script>
+
+    <div>
+        <Label><b>My Profile</b></Label>
+        <input type="button" value="Logout" onclick="log_out()"/>
+    </div>
+    <input type="button" value="Submit Request"
+    onclick="request_form()"/>
+
+    <div>
+        <p id="requests">
+
+        </p>
+    </div>
+
+    <div>
+        <table id="requestTable">
+            <tr>
+                <td>Request Name</td>
+                <td>Organization</td>
+                <td>Reward</td>
+                <td>Needed By</td>
+                <td><a id="expandButton" href="javascript:;" onclick=show("Test")>Test</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="requestDetails">
+        <!-- Content Goes here -->
+    </div>
+
+
+    <script>
+            function show(message) {
+                //Function content goes here
+                document.getElementById("requestDetails").innerHTML = message;
+
+            if (document.getElementById('requestDetails').style.display == 'none') {
+                document.getElementById('requestDetails').style.display = 'block';
+            } else {
+                document.getElementById('requestDetails').style.display = 'none';
+            }
+        }
+
+        function log_out() {
+            window.location.href = "MainPageUnlogged.html"
+        }
+
+        function get_requests() {
+
+
+            var requests;
+            requests = [
+            ];
+            requests.push(
+                ["Horse model", "VGDev", 50, new Date("12/22/2017"), "../DetailsPages/DetailsHorse.html"]
+            );
+            requests.push(
+                ["Dog model", "VGDev", 50, new Date("12/22/2018"), "../DetailsPages/DetailsDog.html"]
+            );
+            return requests;
+        }
+
+        function formatDate(date) {
+            return
+            }
+
+        var requests = get_requests();
+        for (i = 0; i < requests.length; i++) {
+                document.getElementById("requests").innerHTML += requests[i][0] + "\t\t" + requests[i][1] + " " + requests[i][2] + " " + requests[i][3] + "<br />";
+
+            var table = document.getElementById("requestTable");
+            var row = table.insertRow(table.length);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4); // the details button
+
+            cell1.innerHTML = requests[i][0];
+            cell2.innerHTML = requests[i][1];
+            cell3.innerHTML = requests[i][2];
+            cell4.innerHTML = requests[i][3];
+
+            var details = requests[i][4];
+            var detailLink = document.createElement("a");
+            detailLink.setAttribute("href", details)
+            var linkText = document.createTextNode("Details");
+            detailLink.appendChild(linkText);
+            // Add the link to the previously created TableCell.
+            cell5.appendChild(detailLink);
+        }
+    </script>
+
+</body>
