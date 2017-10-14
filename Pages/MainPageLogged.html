@@ -26,10 +26,11 @@
             top: 3px;
         }
 
-        h1 {
+
+        .title {
             font-family: sans-serif;
             color: #9DE79C;
-            display: inline-block;
+            text-align: center;
         }
         input[class="profButton"],input[class="logoutButton"] {
             margin-right: 3px;
@@ -70,15 +71,9 @@
         <input class="logoutButton" type="button" value="Logout" onclick="log_out()"/>
     </div>
     </div>
-    <div><h1>ASSETSHUB</h1></div>
-    <input type="button" value="Submit Request"
-    onclick="request_form()"/>
+    <div class="title"><h1>ASSETSHUB</h1></div>
 
-    <div>
-        <p id="requests">
 
-        </p>
-    </div>
 
     <div>
         <table id="requestTable">
@@ -95,6 +90,8 @@
     <div id="requestDetails">
         <!-- Content Goes here -->
     </div>
+    <input type="button" value="Submit Request"
+    onclick="request_form()"/>
 
 
     <script>
@@ -137,7 +134,6 @@
 
         var requests = get_requests();
         for (i = 0; i < requests.length; i++) {
-                document.getElementById("requests").innerHTML += requests[i][0] + "\t\t" + requests[i][1] + " " + requests[i][2] + " " + requests[i][3] + "<br />";
 
             var table = document.getElementById("requestTable");
             var row = table.insertRow(table.length);
