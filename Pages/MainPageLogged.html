@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <head>
+
     <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <meta charset="utf-8" />
     <style>
+        @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+
         div#expand {
             display: block;
         }
@@ -10,10 +13,22 @@
         .header {
             position: absolute;
             right: 0px;
+            top: 3px;
         }
 
-        .profbutton {
+        h1 {
+            font-family: sans-serif;
+            color: #9DE79C;
+            display: inline-block;
+        }
+        input[class="profButton"],input[class="logoutButton"] {
             margin-right: 3px;
+            background-color: #4CAF50;
+            border-style: groove;
+            border-width: thick;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
         }
         .rectangle {
            background: #e5592e;
@@ -42,9 +57,10 @@
     <div class="rectangle">
     <div class="header">
         <input class="profButton" type="button" value="My Profile" onclick="profile()">
-        <input class="profButton" type="button" value="Logout" onclick="log_out()"/>
+        <input class="logoutButton" type="button" value="Logout" onclick="log_out()"/>
     </div>
     </div>
+    <div><h1>ASSETSHUB</h1></div>
     <input type="button" value="Submit Request"
     onclick="request_form()"/>
 
